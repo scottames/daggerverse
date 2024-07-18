@@ -60,7 +60,7 @@ func (f *Fedora) WithPackageGroupsRemoved(
 	// list of package groups to be installed
 	groups []string,
 ) *Fedora {
-	f.PackageGroupsInstalled = append(f.PackageGroupsInstalled, groups...)
+	f.PackageGroupsRemoved = append(f.PackageGroupsRemoved, groups...)
 
 	return f
 }
@@ -203,7 +203,7 @@ func (f *Fedora) ctrWithPackagesInstalledAndRemovedDnf(
 
 	if packageGroupsInstalled {
 		ctr = f.ctrWithExec(ctr,
-			[]string{dnf, "-y", "group", "remove"},
+			[]string{dnf, "-y", "group", "install"},
 			f.PackageGroupsInstalled...,
 		)
 	}
