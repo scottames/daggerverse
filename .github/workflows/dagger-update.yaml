@@ -1,0 +1,84 @@
+---
+name: dagger-update
+on:
+  # using `on: pull_request` causes a loop
+  push:
+    paths:
+      - "**/dagger.json"
+    branches:
+      - renovate/*
+  # yamllint disable-line rule:empty-values
+  workflow_dispatch:
+jobs:
+  dagger-update:
+    name: Update Dagger Modules
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+    steps:
+      - name: checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+        with:
+          # should be used for PRs only
+          # https://github.com/marketplace/actions/add-commit#working-with-prs
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: generate app token
+        id: generate_app_token
+        if: "! github.event.pull_request.head.repo.fork"
+        # yamllint disable-line rule:line-length
+        uses: suzuki-shunsuke/github-token-action@350d7506222e3a0016491abe85b5c4dd475b67d1 # v0.2.1
+        with:
+          github_app_id: ${{secrets.GH_APP_ID}}
+          github_app_private_key: ${{secrets.GH_APP_PRIVATE_KEY}}
+          github_app_permissions: >-
+            { "contents": "write" }
+          github_app_repositories: >-
+            ["${{github.event.repository.name}}"]
+      - name: install aquas (using default token)
+        # yamllint disable-line rule:line-length
+        uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
+        if: |
+          steps.generate_app_token.outputs.token_type == 'empty'
+          && ! github.event.pull_request.head.repo.fork
+        with:
+          aqua_version: v2.30.0 # renovate: depName=aquaproj/aqua
+        env:
+          AQUA_GITHUB_TOKEN: ${{ github.token }}
+          # yamllint disable-line rule:line-length
+      - name: install aquas (using generated app token)
+        # yamllint disable-line rule:line-length
+        uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
+        if: |
+          steps.generate_app_token.outputs.token_type != 'empty'
+          && ! github.event.pull_request.head.repo.fork
+        # Install ghcp
+        with:
+          aqua_version: v2.30.0 # renovate: depName=aquaproj/aqua
+        env:
+          AQUA_GITHUB_TOKEN: ${{ steps.generate_app_token.outputs.token }}
+          # yamllint disable-line rule:line-length
+      - uses: kevincobain2000/action-gobrew@e6b1116c09b28a0e20a753384c90bb7fa95ec198 # v2
+        with:
+          version: 1.22.4 # renovate: datasource=golang-version depName=go
+      - name: dagger develop
+        run: |
+          just develop
+      - name: ghcp push changes
+        if: "! github.event.pull_request.head.repo.fork"
+        env:
+          GITHUB_REPOSITORY: ${{github.event.repository.name}}
+          GITHUB_TOKEN: ${{steps.generate_app_token.outputs.token}}
+        run: |
+          branch=${GITHUB_HEAD_REF:-} # https://github.com/int128/ghcp
+          if [ -z "${branch}" ]; then
+            branch="${GITHUB_REF_NAME}"
+          fi
+          # shellcheck disable=SC2046
+          # ^- we want it to split!
+          ghcp commit -r "$GITHUB_REPOSITORY" -b "${branch}" \
+            -m "chore(dagger): develop" \
+            $(git --no-pager diff --name-only)
+          exit 1
