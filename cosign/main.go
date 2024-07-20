@@ -43,7 +43,7 @@ func (f *Cosign) Sign(
 ) ([]string, error) {
 	stdouts := []string{}
 	for _, d := range digests {
-		cmd := []string{"sign", d, "--key", "env://COSIGN_PRIVATE_KEY"}
+		cmd := []string{"cosign", "sign", d, "--key", "env://COSIGN_PRIVATE_KEY"}
 		if registryUsername != nil && registryPassword != nil {
 			pwd, err := registryPassword.Plaintext(ctx)
 			if err != nil {

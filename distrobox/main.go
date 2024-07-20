@@ -12,11 +12,13 @@ import (
 	"regexp"
 )
 
+var distrobox = "distrobox"
+
 type Distrobox struct{}
 
-// ContainerWithDistroboxClonedToTmp returns a Container with the Distrobox
+// ContainerWithDistroboxCloned returns a Container with the Distrobox
 // project cloned inside
-func (d *Distrobox) ContainerWithDistroboxClonedToTmp(
+func (d *Distrobox) ContainerWithDistroboxCloned(
 	// container to use to clone the distrobox project
 	//   note: `git` is expected to be the entrypoint!
 	// +optional
@@ -24,16 +26,19 @@ func (d *Distrobox) ContainerWithDistroboxClonedToTmp(
 	from string,
 	// desired path inside the container to clone the distrobox project
 	// +optional
-	// +default="/tmp"
-	destination string,
+	path *string,
 ) *dagger.Container {
+	if path == nil {
+		path = &distrobox
+	}
 	return dag.
 		Container().
 		From(from).
 		WithExec([]string{
+			"git",
 			"clone",
 			"https://github.com/89luca89/distrobox.git",
-			"--single-branch", fmt.Sprintf("%s/distrobox", destination),
+			"--single-branch", *path,
 		})
 }
 
@@ -65,7 +70,7 @@ func (d *Distrobox) ContainerWithFileFromUrl(
 		Container().
 		From(from).
 		WithExec([]string{
-			"-fsSL", "-o", filePath, url,
+			"curl", "-fsSL", "-o", filePath, url,
 		})
 }
 
@@ -87,7 +92,8 @@ func (d *Distrobox) HostSpawnFile(
 	hostSpawnVersion, err := d.FindStringSubmatchInFile(
 		ctx, d.HostExecFile(
 			"cgr.dev/chainguard/git:latest", // HostExecFile uses git (not curl)
-			"/tmp"), `host_spawn_version="(.*?)"`,
+			&distrobox,
+		), `host_spawn_version="(.*?)"`,
 	)
 	if err != nil {
 		return nil, err
@@ -113,13 +119,16 @@ func (d *Distrobox) HostExecFile(
 	from string,
 	// desired path inside the container to clone the distrobox project
 	// +optional
-	// +default="/tmp"
-	path string,
+	path *string,
 ) *dagger.File {
+	if path == nil {
+		path = &distrobox
+	}
+
 	return d.
-		ContainerWithDistroboxClonedToTmp(from, path).
+		ContainerWithDistroboxCloned(from, path).
 		File(
-			fmt.Sprintf("%s/distrobox/distrobox-host-exec", path),
+			fmt.Sprintf("%s/distrobox-host-exec", *path),
 		)
 }
 
