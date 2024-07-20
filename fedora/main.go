@@ -7,6 +7,7 @@ package main
 
 import (
 	"context"
+	"dagger/fedora/internal/dagger"
 	"fmt"
 	"io"
 	"net/http"
@@ -90,8 +91,8 @@ type Fedora struct {
 	PackagesRemoved        []string
 	PackagesSwapped        []Swap
 	Repos                  []*Repo
-	ExecScriptPre          []*File
-	ExecScriptPost         []*File
+	ExecScriptPre          []*dagger.File
+	ExecScriptPost         []*dagger.File
 	ExecPre                [][]string
 	ExecPost               [][]string
 	Labels                 []*ContainerLabel

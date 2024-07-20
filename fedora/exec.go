@@ -1,10 +1,12 @@
 package main
 
+import "dagger/fedora/internal/dagger"
+
 // WithExecScripts adds scripts (Files) to be uploaded and executed on the
 // generated Container image
 func (f *Fedora) WithExecScripts(
 	// scripts (Files) to be uploaded and executed
-	scripts []*File,
+	scripts []*dagger.File,
 	// if true, the script(s) will be run prior to any packages being installed
 	// on the Container image
 	// if false, they will be run after packages are installed as part of

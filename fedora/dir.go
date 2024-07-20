@@ -1,11 +1,14 @@
 package main
 
-import "context"
+import (
+	"context"
+	"dagger/fedora/internal/dagger"
+)
 
 // DirectoryFromSource represents a Directory to be placed in the generated
 // Container image at the Destination
 type DirectoryFromSource struct {
-	Source      *Directory
+	Source      *dagger.Directory
 	Destination string
 }
 
@@ -15,7 +18,7 @@ func (f *Fedora) WithDirectory(
 	// path in Container image to place the source directory
 	destination string,
 	// directory to be uploaded to the Container image
-	directory *Directory,
+	directory *dagger.Directory,
 ) *Fedora {
 	dir := DirectoryFromSource{Source: directory, Destination: destination}
 	f.Directories = append(f.Directories, &dir)

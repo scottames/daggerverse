@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"dagger/fedora/internal/dagger"
 	"fmt"
 	"path/filepath"
 )
@@ -114,7 +115,7 @@ func (f *Fedora) WithPackagesSwapped(
 
 // ctrWithReposInstalled will get the f.Repos urls and install them in the
 // returned Container image.
-func (f *Fedora) ctrWithReposInstalled(ctr *Container) (*Container, error) {
+func (f *Fedora) ctrWithReposInstalled(ctr *dagger.Container) (*dagger.Container, error) {
 	if f.Repos == nil {
 		return ctr, nil
 	}
@@ -125,12 +126,15 @@ func (f *Fedora) ctrWithReposInstalled(ctr *Container) (*Container, error) {
 			return nil, fmt.Errorf("error getting repo (%s) url: %w", r.FileName, err)
 		}
 
-		fileOpts := ContainerWithNewFileOpts{
-			Contents:    string(contents),
+		fileOpts := dagger.ContainerWithNewFileOpts{
 			Permissions: 0644,
 			Owner:       "root:root",
 		}
-		ctr = ctr.WithNewFile(fmt.Sprintf("%s/%s", etcYumReposD, r.FileName), fileOpts)
+		ctr = ctr.WithNewFile(
+			fmt.Sprintf("%s/%s", etcYumReposD, r.FileName),
+			string(contents),
+			fileOpts,
+		)
 	}
 
 	return ctr, nil
@@ -138,7 +142,7 @@ func (f *Fedora) ctrWithReposInstalled(ctr *Container) (*Container, error) {
 
 // ctrWithReposRemoved will remove f.Repos which are not marked to be kept
 // in the generated Container image.
-func (f *Fedora) ctrWithReposRemoved(ctr *Container) *Container {
+func (f *Fedora) ctrWithReposRemoved(ctr *dagger.Container) *dagger.Container {
 	cmd := []string{"rm", "-f"}
 	run := false
 	for _, r := range f.Repos {
@@ -159,8 +163,8 @@ func (f *Fedora) ctrWithReposRemoved(ctr *Container) *Container {
 // as specified by the Fedora object
 func (f *Fedora) ctrWithPackagesInstalledAndRemoved(
 	ctx context.Context,
-	ctr *Container,
-) (*Container, error) {
+	ctr *dagger.Container,
+) (*dagger.Container, error) {
 	ostreeBootable, _ := ctr.Label(ctx, "ostree.bootable")
 	if ostreeBootable == "true" {
 		return f.ctrWithPackagesInstalledAndRemovedRpmOstree(ctx, ctr), nil
@@ -173,8 +177,8 @@ func (f *Fedora) ctrWithPackagesInstalledAndRemoved(
 // packages using `dnf` as specified by the Fedora object
 func (f *Fedora) ctrWithPackagesInstalledAndRemovedDnf(
 	ctx context.Context,
-	ctr *Container,
-) *Container {
+	ctr *dagger.Container,
+) *dagger.Container {
 	const dnf = "dnf"
 
 	if len(f.PackageGroupsRemoved) > 0 {
@@ -229,8 +233,8 @@ func (f *Fedora) ctrWithPackagesInstalledAndRemovedDnf(
 // packages installed and removed as defined by the Fedora object
 func (f *Fedora) ctrWithPackagesInstalledAndRemovedRpmOstree(
 	ctx context.Context,
-	ctr *Container,
-) *Container {
+	ctr *dagger.Container,
+) *dagger.Container {
 	removePackages := len(f.PackagesRemoved) > 0
 	installPackages := len(f.PackagesInstalled) > 0
 

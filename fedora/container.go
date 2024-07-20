@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"dagger/fedora/internal/dagger"
 	"fmt"
 	"strings"
 )
@@ -42,7 +43,7 @@ func (f *Fedora) ContainerAddress(
 }
 
 // Container returns a Fedora container as a dagger.Container object
-func (f *Fedora) Container(ctx context.Context) (*Container, error) {
+func (f *Fedora) Container(ctx context.Context) (*dagger.Container, error) {
 	ctr, err := f.
 		ContainerFrom(
 			ctx,
@@ -66,7 +67,7 @@ func (f *Fedora) ContainerFrom(
 	ctx context.Context,
 	// base container image to pull FROM
 	from string,
-) (*Container, error) {
+) (*dagger.Container, error) {
 	ctr := dag.
 		Container().
 		From(from)
@@ -137,7 +138,7 @@ func (f *Fedora) ContainerVersionFromLabel(
 	ctx context.Context,
 	// Container to use to determine the release version from
 	// +optional
-	ctr *Container,
+	ctr *dagger.Container,
 ) (string, error) {
 	if ctr == nil {
 		var err error
@@ -162,13 +163,13 @@ func (f *Fedora) ContainerVersionFromLabel(
 
 // ContainerReleaseVersionFromLabel returns the label value for the image
 // version, defined as 'version' OR 'org.opencontainers.image.version'
-//   - if the version contains sub-versions & dates deliminted by '.' they will
+//   - if the version contains sub-versions & dates delimited by '.' they will
 //     parsed out
 func (f *Fedora) ContainerReleaseVersionFromLabel(
 	ctx context.Context,
 	// Container to use to determine the release version from
 	// +optional
-	ctr *Container,
+	ctr *dagger.Container,
 ) (string, error) {
 	version, err := f.ContainerVersionFromLabel(ctx, ctr)
 	if err != nil {
@@ -187,7 +188,7 @@ func (f *Fedora) ContainerReleaseVersionFromLabel(
 
 // ctrWithDirectoriesInstalled returns a container type with the Fedora object
 // with Directories installed
-func (f *Fedora) ctrWithDirectoriesInstalled(ctr *Container) *Container {
+func (f *Fedora) ctrWithDirectoriesInstalled(ctr *dagger.Container) *dagger.Container {
 	for _, d := range f.Directories {
 		ctr = ctr.WithDirectory(d.Destination, d.Source)
 	}
@@ -197,7 +198,7 @@ func (f *Fedora) ctrWithDirectoriesInstalled(ctr *Container) *Container {
 
 // ctrWithFilesInstalled returns a container type with the Fedora object
 // with Files installed
-func (f *Fedora) ctrWithFilesInstalled(ctr *Container) *Container {
+func (f *Fedora) ctrWithFilesInstalled(ctr *dagger.Container) *dagger.Container {
 	for _, d := range f.Files {
 		ctr = ctr.WithFile(d.Destination, d.Source)
 	}
@@ -207,7 +208,7 @@ func (f *Fedora) ctrWithFilesInstalled(ctr *Container) *Container {
 
 // ctrWithLabels returns a container type with the Fedora object
 // with Labels added
-func (f *Fedora) ctrWithLabels(ctr *Container) *Container {
+func (f *Fedora) ctrWithLabels(ctr *dagger.Container) *dagger.Container {
 	for _, l := range f.Labels {
 		ctr = ctr.WithLabel(l.Name, l.Value)
 	}
@@ -218,12 +219,12 @@ func (f *Fedora) ctrWithLabels(ctr *Container) *Container {
 // ctrWithExec wraps Container.WithExec allowing the command and args to be
 // separated
 func (f *Fedora) ctrWithExec(
-	ctr *Container,
+	ctr *dagger.Container,
 	// command to be executed
 	command []string,
 	// arguments to be passed to the given command
 	args ...string,
-) *Container {
+) *dagger.Container {
 	if args != nil {
 		command = append(command, args...)
 	}
@@ -237,10 +238,10 @@ func (f *Fedora) ctrWithExec(
 func (f *Fedora) ctrExecScripts(
 	ctx context.Context,
 	// Container image to run scripts against
-	ctr *Container,
+	ctr *dagger.Container,
 	// scripts (files) to be run
-	scripts []*File,
-) (*Container, error) {
+	scripts []*dagger.File,
+) (*dagger.Container, error) {
 	for _, script := range scripts {
 		scriptName, err := script.Name(ctx)
 		if err != nil {
@@ -258,10 +259,10 @@ func (f *Fedora) ctrExecScripts(
 func (f *Fedora) ctrScriptsCleanup(
 	ctx context.Context,
 	// Container image to run scripts against
-	ctr *Container,
+	ctr *dagger.Container,
 	// scripts (files) to be removed
-	scripts []*File,
-) (*Container, error) {
+	scripts []*dagger.File,
+) (*dagger.Container, error) {
 	filesToDelete := []string{}
 	for _, script := range scripts {
 		scriptName, err := script.Name(ctx)

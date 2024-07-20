@@ -6,6 +6,7 @@ package main
 
 import (
 	"context"
+	"dagger/distrobox/internal/dagger"
 	"fmt"
 	"path"
 	"regexp"
@@ -25,7 +26,7 @@ func (d *Distrobox) ContainerWithDistroboxClonedToTmp(
 	// +optional
 	// +default="/tmp"
 	destination string,
-) *Container {
+) *dagger.Container {
 	return dag.
 		Container().
 		From(from).
@@ -54,7 +55,7 @@ func (d *Distrobox) ContainerWithFileFromUrl(
 	// +optional
 	// +default=""
 	name string,
-) *Container {
+) *dagger.Container {
 	if name == "" {
 		name = path.Base(destination)
 	}
@@ -82,7 +83,7 @@ func (d *Distrobox) HostSpawnFile(
 	// +optional
 	// +default="x86_64"
 	arch string,
-) (*File, error) {
+) (*dagger.File, error) {
 	hostSpawnVersion, err := d.FindStringSubmatchInFile(
 		ctx, d.HostExecFile(
 			"cgr.dev/chainguard/git:latest", // HostExecFile uses git (not curl)
@@ -114,7 +115,7 @@ func (d *Distrobox) HostExecFile(
 	// +optional
 	// +default="/tmp"
 	path string,
-) *File {
+) *dagger.File {
 	return d.
 		ContainerWithDistroboxClonedToTmp(from, path).
 		File(
@@ -127,7 +128,7 @@ func (d *Distrobox) HostExecFile(
 func (d *Distrobox) FindStringSubmatchInFile(
 	ctx context.Context,
 	// file to match string in
-	file *File,
+	file *dagger.File,
 	// regex to match against
 	regex string,
 ) (string, error) {

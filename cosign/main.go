@@ -3,6 +3,7 @@ package main
 
 import (
 	"context"
+	"dagger/cosign/internal/dagger"
 )
 
 // Cosign represents the cosign Dagger module type
@@ -17,18 +18,18 @@ type Cosign struct{}
 func (f *Cosign) Sign(
 	ctx context.Context,
 	// Cosign private key
-	privateKey Secret,
+	privateKey dagger.Secret,
 	// Cosign password
-	password Secret,
+	password dagger.Secret,
 	// registry username
 	//+optional
 	registryUsername *string,
 	// name of the image
 	//+optional
-	registryPassword *Secret,
+	registryPassword *dagger.Secret,
 	// Docker config
 	//+optional
-	dockerConfig *File,
+	dockerConfig *dagger.File,
 	// Cosign container image
 	//+optional
 	//+default="chainguard/cosign:latest"
@@ -70,7 +71,7 @@ func (f *Cosign) Sign(
 			cosign = cosign.WithMountedFile(
 				"/home/nonroot/.docker/config.json",
 				dockerConfig,
-				ContainerWithMountedFileOpts{Owner: *cosignUser})
+				dagger.ContainerWithMountedFileOpts{Owner: *cosignUser})
 		}
 
 		stdout, err := cosign.Stdout(ctx)
