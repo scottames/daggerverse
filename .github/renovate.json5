@@ -1,66 +1,17 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  configMigration: true,
   extends: [
-    'config:recommended',
-    'config:best-practices',
-    ':semanticCommitTypeAll(chore)',
-    ':preserveSemverRanges',
-    'mergeConfidence:all-badges',
-    'github>aquaproj/aqua-renovate-config#2.3.1', // renovate: depName=aquaproj/aqua-renovate-config
+    'github>scottames/renovate:default.json5',
   ],
-  automergeStrategy: 'squash',
-  dependencyDashboard: true,
-  labels: [
-    'dependencies',
-  ],
-  platformAutomerge: true,
-  pruneStaleBranches: true,
-  rebaseWhen: 'behind-base-branch',
-  schedule: 'after 4pm on thursday',
-  timezone: 'America/Los_Angeles',
-  semanticCommitScope: 'deps',
-  semanticCommitType: 'chore',
-  semanticCommits: 'enabled',
   gomod: {
     enabled: false, // dagger should handle changes to go.mod/sum
   },
-  vulnerabilityAlerts: {
-    enabled: true,
-    labels: [
-      'security',
-    ],
-  },
-  customManagers: [
+  packageRules: [
     {
-      customType: 'regex',
-      fileMatch: [
-        '^\\.github\\/workflows\\/([^\\/]+)\\.yaml$',
-        'justfile',
-      ],
-      matchStrings: [
-        // - order: datasource, depName, versioning (optional)
-        // - ends in 'version'
-        //    - value quoted or not
-        //    - combination of := between string 'version' and version capture
-        // - above line or end of line
-        //
-        // above line
-        "renovate:(\\sdatasource=(?<datasource>.*?))?\\sdepName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+.*?[vV][eE][rR][sS][iI][oO][nN]\\s?[:=]+ +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?\\s",
-        // same as above s/version/tag/
-        "renovate:(\\sdatasource=(?<datasource>.*?))?\\sdepName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+.*?[tT][aA][gG]\\s?[:=]+ +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?\\s",
-        // in-line
-        "\\s+.*?[vV][eE][rR][sS][iI][oO][nN]\\s?[:=]+ +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?\\s+.+ renovate:(\\sdatasource=(?<datasource>.*?))?\\sdepName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s",
-        // same as above s/version/tag/
-        "\\s+.*?[tT][aA][gG]\\s?[:=]+ +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?\\s+.+ renovate:(\\sdatasource=(?<datasource>.*?))?\\sdepName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s",
-      ],
+      description: "skip pinning silverblue in justfile as it is used to track Fedora major version",
+      matchFileNames: ['justfile'],
+      matchDatasources: ['docker'],
+      pinDigests: false,
     },
-    {
-      customType: 'regex',
-      fileMatch: ['dagger.json'],
-      matchStrings: ["engineVersion\":\\s\"(?<currentValue>[^'\" \\n]+)\"\\s"],
-      depNameTemplate: 'dagger/dagger',
-      datasourceTemplate: 'github-releases'
-    }
-  ],
+  ]
 }
