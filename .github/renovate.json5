@@ -6,12 +6,4 @@
   gomod: {
     enabled: false, // dagger should handle changes to go.mod/sum
   },
-  packageRules: [
-    {
-      description: "skip pinning silverblue in justfile as it is used to track Fedora major version",
-      matchFileNames: ['justfile'],
-      matchDatasources: ['docker'],
-      pinDigests: false,
-    },
-  ]
 }
