@@ -70,7 +70,7 @@ jobs:
       # yamllint disable-line rule:line-length
       - uses: kevincobain2000/action-gobrew@e6b1116c09b28a0e20a753384c90bb7fa95ec198 # v2
         with:
-          version: 1.22.4 # renovate: datasource=golang-version depName=go
+          version: 1.22.5 # renovate: datasource=golang-version depName=go
       - name: dagger develop
         run: |
           just goUpdates="${{ inputs.go-updates }}" develop
