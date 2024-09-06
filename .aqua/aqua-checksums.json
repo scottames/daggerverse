@@ -26,13 +26,13 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.10/gobrew-linux-amd64",
-      "checksum": "26557FEC741E47B1F82B12607140E1829ACB0F626AF58A9C6D254F2195BF18A1",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.11/gobrew-linux-amd64",
+      "checksum": "CF9978037863C67F1233198F050061B3865853A261B99C3F48C188ACA66B415C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.10/gobrew-linux-arm64",
-      "checksum": "A8A2F0C927213023543C72E240482326877EE2AE2B35E07073839C71FA174D2F",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.11/gobrew-linux-arm64",
+      "checksum": "BED58A9797D1652E18B628871DA59C2DA98F31F5AA5D4AF058BC3A1389DAE249",
       "algorithm": "sha256"
     },
     {
