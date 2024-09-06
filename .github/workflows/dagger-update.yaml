@@ -68,7 +68,7 @@ jobs:
         env:
           AQUA_GITHUB_TOKEN: ${{ steps.generate_app_token.outputs.token }}
       # yamllint disable-line rule:line-length
-      - uses: kevincobain2000/action-gobrew@e6b1116c09b28a0e20a753384c90bb7fa95ec198 # v2
+      - uses: kevincobain2000/action-gobrew@aa328ee19c95750fa612256c0a3f9bad4810fc04 # v2
         with:
           version: 1.22.5 # renovate: datasource=golang-version depName=go
       - name: dagger develop
