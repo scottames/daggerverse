@@ -1,8 +1,13 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/casey/just/1.36.0/just-1.36.0-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "BB3886B15E2CBCB9C0EB19956297D36DE4EAEF45B89D3F5FA5D1FC4ED3B5B51D",
+      "id": "github_release/github.com/casey/just/1.35.0/just-1.35.0-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "A94C75426239FCE8C1E7FDFCCD20D60D987924F91AC45C843A14CD72D4D71E73",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/casey/just/1.35.0/just-1.35.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "C4172306E241BD175C07316156A610593FA2B687AC49418520A375605D7CEAD4",
       "algorithm": "sha256"
     },
     {
@@ -21,6 +26,11 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/int128/ghcp/v1.13.3/ghcp_linux_amd64.zip",
+      "checksum": "8B3A1F25A9A5E69CB6306EE88F92D4BB931D343AD1E907FC5DC67491D3985EA4",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/int128/ghcp/v1.13.4/ghcp_linux_amd64.zip",
       "checksum": "5867522FB90C2ACA8907767732E194E498C5A129C61B280EE6F40E6727426685",
       "algorithm": "sha256"
@@ -34,6 +44,11 @@
       "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.11/gobrew-linux-arm64",
       "checksum": "BED58A9797D1652E18B628871DA59C2DA98F31F5AA5D4AF058BC3A1389DAE249",
       "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.220.1/registry.yaml",
+      "checksum": "E52926392614425EFC6D74D06B885F918A401FC2E44500FFD0A0D19758BCCE0EFBC0A4F7760058ACD1007B69D2239C9834A4151CCC963DE2E65D6D267A0E0906",
+      "algorithm": "sha512"
     },
     {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.231.0/registry.yaml",
