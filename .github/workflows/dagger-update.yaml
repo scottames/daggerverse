@@ -52,7 +52,7 @@ jobs:
           && ! github.event.pull_request.head.repo.fork
         with:
           policy_allow: "true"
-          aqua_version: v2.36.1 # renovate: depName=aquaproj/aqua
+          aqua_version: v2.36.2 # renovate: depName=aquaproj/aqua
         env:
           AQUA_GITHUB_TOKEN: ${{ github.token }}
       # yamllint disable-line rule:line-length
@@ -64,7 +64,7 @@ jobs:
           && ! github.event.pull_request.head.repo.fork
         with:
           policy_allow: "true"
-          aqua_version: v2.36.1 # renovate: depName=aquaproj/aqua
+          aqua_version: v2.36.2 # renovate: depName=aquaproj/aqua
         env:
           AQUA_GITHUB_TOKEN: ${{ steps.generate_app_token.outputs.token }}
       # yamllint disable-line rule:line-length
