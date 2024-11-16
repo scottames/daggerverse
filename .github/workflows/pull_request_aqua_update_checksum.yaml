@@ -10,7 +10,7 @@ permissions:
 jobs:
   aqua-update-checksums:
     # yamllint disable-line rule:line-length
-    uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@437067ad2fba9ba8ed8454cf207f2532432d4e28 # v1.0.2 # renovate: depName=aquaproj/update-checksum-workflow
+    uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@8bce60cc4475128360bc32f00707abb874ca4a91 # v1.0.3 # renovate: depName=aquaproj/update-checksum-workflow
     permissions:
       contents: read
     with:
