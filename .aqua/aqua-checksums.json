@@ -1,13 +1,13 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/casey/just/1.36.0/just-1.36.0-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "BB3886B15E2CBCB9C0EB19956297D36DE4EAEF45B89D3F5FA5D1FC4ED3B5B51D",
+      "id": "github_release/github.com/casey/just/1.39.0/just-1.39.0-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "F1B9ACDB4374983539C765D60374350932527DF807B25975E05ABB152C9021E7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/casey/just/1.36.0/just-1.36.0-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "BC7C9F377944F8DE9CD0418B11D2955ADEBFA25A488C0B5E3DD2D2C0E9D732DA",
+      "id": "github_release/github.com/casey/just/1.39.0/just-1.39.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "1C53FA85A8C021CE7B19814E1A5E1DC0AA10C04BDDCA75196F7AB6DB6130D2CD",
       "algorithm": "sha256"
     },
     {
@@ -21,23 +21,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/int128/ghcp/v1.13.4/ghcp_linux_amd64.zip",
-      "checksum": "5867522FB90C2ACA8907767732E194E498C5A129C61B280EE6F40E6727426685",
+      "id": "github_release/github.com/int128/ghcp/v1.13.5/ghcp_linux_amd64.zip",
+      "checksum": "3C808E566F0B663182AD5B5DD6E6B05DC8346610EA5613EA8C22AB19F47A4493",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.11/gobrew-linux-amd64",
-      "checksum": "CF9978037863C67F1233198F050061B3865853A261B99C3F48C188ACA66B415C",
+      "id": "github_release/github.com/int128/ghcp/v1.13.5/ghcp_linux_arm64.zip",
+      "checksum": "14068BF35B2ED187EE7D8DB854DF2E7913C2BBC981979D3F8AE533D058E35F16",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.11/gobrew-linux-arm64",
-      "checksum": "BED58A9797D1652E18B628871DA59C2DA98F31F5AA5D4AF058BC3A1389DAE249",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.12/gobrew-linux-amd64",
+      "checksum": "AF658BEBF4C4EDDE5647ACC198BE119C9F3A48FF64840A20C911B43988177907",
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.249.0/registry.yaml",
-      "checksum": "68CAD3A40709928574DC0CC51F364B6B1914B01366C7D5F71E5321A2237FDA9B168DA98CF04DD66E499E47DF332B5BA522E8F920E2F9E549A36A3C048EBDDF5D",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.12/gobrew-linux-arm64",
+      "checksum": "F6870992D64F27244D3DBE3015F54EB99E03F500F82FD79EF8CDCD10AFE4EB03",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.321.0/registry.yaml",
+      "checksum": "35DB52C79AC4A67B080884E009199A961E1823DEBAC747EBCECDD1D052023972245BA8419481D7D5BC9140AF5F2AA3084047141FA60A0E35D33291BAE948DA64",
       "algorithm": "sha512"
     }
   ]
