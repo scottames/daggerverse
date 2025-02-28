@@ -12,4 +12,4 @@ packages:
   - name: int128/ghcp@v1.13.5 # required for aqua-checksums update
   - name: kevincobain2000/gobrew@v1.10.12
   - name: casey/just@1.39.0
-  - name: dagger/dagger@v0.14.0
+  - name: dagger/dagger@v0.16.2
