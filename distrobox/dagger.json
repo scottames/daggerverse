@@ -1,6 +1,6 @@
 {
   "name": "distrobox",
-  "engineVersion": "v0.16.2",
+  "engineVersion": "v0.18.8",
   "sdk": {
     "source": "go"
   }
