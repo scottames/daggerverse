@@ -35,7 +35,6 @@ func (d *Distrobox) ContainerWithDistroboxCloned(
 		Container().
 		From(from).
 		WithExec([]string{
-			"git",
 			"clone",
 			"https://github.com/89luca89/distrobox.git",
 			"--single-branch", *path,
