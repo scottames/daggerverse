@@ -21,13 +21,13 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/int128/ghcp/v1.13.5/ghcp_linux_amd64.zip",
-      "checksum": "3C808E566F0B663182AD5B5DD6E6B05DC8346610EA5613EA8C22AB19F47A4493",
+      "id": "github_release/github.com/int128/ghcp/v1.14.0/ghcp_linux_amd64.zip",
+      "checksum": "25C736DF285D04FB1E47088598615AAFBFD7D87B24C6546232959B45B5CC23C7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/int128/ghcp/v1.13.5/ghcp_linux_arm64.zip",
-      "checksum": "14068BF35B2ED187EE7D8DB854DF2E7913C2BBC981979D3F8AE533D058E35F16",
+      "id": "github_release/github.com/int128/ghcp/v1.14.0/ghcp_linux_arm64.zip",
+      "checksum": "F85A39C758016F62882033A4B3B7A954EA349574B1F3699F7AD6313A0B5E6A3F",
       "algorithm": "sha256"
     },
     {
@@ -41,8 +41,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.374.0/registry.yaml",
-      "checksum": "619BDA08E2B9259FEFE5DF052EBB1FEDABE96C58CCC41444938FFA3F3EEB5828456A80CF1859695E37B4F74CD1A45C5AC516C82DFE5752D010AADE352EB222E0",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.379.0/registry.yaml",
+      "checksum": "E244E31650EE3A27997D11E8F9ED7461BEE14E42CE3A2313300CC5FC31CC5FC775A9118A669A3A0DCEDA07FBA90B52C98E73B872ECC457A40D17D6E32731DA74",
       "algorithm": "sha512"
     }
   ]
