@@ -46,7 +46,7 @@ jobs:
             ["${{github.event.repository.name}}"]
       - name: install aquas (using default token)
         # yamllint disable-line rule:line-length
-        uses: aquaproj/aqua-installer@5e54e5cee8a95ee2ce7c04cb993da6dfad13e59c # v3.1.2
+        uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         if: |
           steps.generate_app_token.outputs.token_type == 'empty'
           && ! github.event.pull_request.head.repo.fork
@@ -58,7 +58,7 @@ jobs:
       # yamllint disable-line rule:line-length
       - name: install aquas (using generated app token)
         # yamllint disable-line rule:line-length
-        uses: aquaproj/aqua-installer@5e54e5cee8a95ee2ce7c04cb993da6dfad13e59c # v3.1.2
+        uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         if: |
           steps.generate_app_token.outputs.token_type != 'empty'
           && ! github.event.pull_request.head.repo.fork
