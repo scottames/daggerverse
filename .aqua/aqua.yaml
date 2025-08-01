@@ -7,7 +7,7 @@ checksum: # https://aquaproj.github.io/docs/reference/checksum/
     - linux
 registries:
   - type: standard
-    ref: v4.395.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.397.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: int128/ghcp@v1.15.0 # required for aqua-checksums update
   - name: kevincobain2000/gobrew@v1.10.12
