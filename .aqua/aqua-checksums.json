@@ -1,13 +1,13 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/casey/just/1.42.4/just-1.42.4-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "BEB35A4ED1208FFBB0FEF26042C65875759A5358B9EE1A7856DEC8490DFD4ACA",
+      "id": "github_release/github.com/casey/just/1.43.0/just-1.43.0-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "4FCD8310081C32742EB984B1FDD0EEE2E5D4D0F1BE9629318012D42606EC9B3E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/casey/just/1.42.4/just-1.42.4-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "678EFC1CFBD5FA5A88375DAA7E2F3864A049D6D63A0296DF925A2AE5F516CB56",
+      "id": "github_release/github.com/casey/just/1.43.0/just-1.43.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "A1BC93654F31669FD964EA3011A5E5E9676B9B6F8ADCD762606E5140632EA72D",
       "algorithm": "sha256"
     },
     {
@@ -31,18 +31,18 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.13/gobrew-linux-amd64",
-      "checksum": "3DD6158E2BDBC3275B6B4A9736AB111B3958320A37012C121BDBB5EA9E6E0275",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.15/gobrew-linux-amd64",
+      "checksum": "865EB0B65468E169FB89EE429DC72C89371AB1D498698C3B71B5C19C1BEA06DF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.13/gobrew-linux-arm64",
-      "checksum": "A4AEB4B206305AD8D17FA26D7218970E9A5BDF7D2ED03E3D53E99F8E24DA7C28",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.15/gobrew-linux-arm64",
+      "checksum": "6507E2BAAEEAB96C39E7C7CAAEBCD399818E8EC83F66CC03548C08505E19BB5A",
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.417.0/registry.yaml",
-      "checksum": "153AA02F25A323ADF626F194B4789EB74C76E0C5EB7034CFCD641D32DA71733354F71CDEEAE4D59C886A8E5087BD7BCFB42B50CCED278A3D503038DFA7BB10F9",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.421.0/registry.yaml",
+      "checksum": "28F12785429274ADCFA97906A10D80FFC44D0FAEF7CF1560119A31EA218C118E0C173C7FAEDDE31449665D25741B12F40EF3FFFCA4540947BE96D5CD370A92DE",
       "algorithm": "sha512"
     }
   ]
