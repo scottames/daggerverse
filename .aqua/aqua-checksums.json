@@ -21,28 +21,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/int128/ghcp/v1.15.1/ghcp_linux_amd64.zip",
-      "checksum": "C5BA74D0B2652A4375C4AE653B7C065024A619ADCFF40DEDBFDD10D40E287D3D",
+      "id": "github_release/github.com/int128/ghcp/v1.15.2/ghcp_linux_amd64.zip",
+      "checksum": "A1E13FB5FEC92913E67984D88DB6D4C39473CCA3A6B9927621E410EE431F3532",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/int128/ghcp/v1.15.1/ghcp_linux_arm64.zip",
-      "checksum": "801DB65A3EA5148C7A89F5201F8992963F2592FC17ED5FD88E4D996BAD9542B2",
+      "id": "github_release/github.com/int128/ghcp/v1.15.2/ghcp_linux_arm64.zip",
+      "checksum": "5B0A4FFDBAA27FFE4CBAF13C3C4B6AC3EAB25D447947FAE114F89D1EE4EBF734",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.15/gobrew-linux-amd64",
-      "checksum": "865EB0B65468E169FB89EE429DC72C89371AB1D498698C3B71B5C19C1BEA06DF",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.16/gobrew-linux-amd64",
+      "checksum": "DE0C8FA4BAE6F729D70FA7697E0AA2D66B07D2FB7CE911E04B1B7B6C211E073E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.15/gobrew-linux-arm64",
-      "checksum": "6507E2BAAEEAB96C39E7C7CAAEBCD399818E8EC83F66CC03548C08505E19BB5A",
+      "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.16/gobrew-linux-arm64",
+      "checksum": "A111067CAA90C8E218C8E17CB6741D64758547E892D0FA03841AD682DAB3C57F",
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.473.0/registry.yaml",
-      "checksum": "00D126A19EF0F28AF055B7DBE4A86F8A0F805759A0D63227ED3C9B153C80A863F2965A8F930192246DEC32E6635C2BE5F803D1FEE893B7604C0FFC3B9C4F84B4",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.476.0/registry.yaml",
+      "checksum": "76F939441EF9C2B56F8ABC96BB1A93546C0A343E90507278DA61B3194799682970BB03A4E41E0DE2F05F2C9E080CADB64259A0B8FC978CB50E3139F412D6CE09",
       "algorithm": "sha512"
     }
   ]
