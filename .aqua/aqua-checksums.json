@@ -11,13 +11,13 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dagger/dagger/v0.19.11/dagger_v0.19.11_linux_amd64.tar.gz",
-      "checksum": "3978ACBD6ECA25E70D4A9F4D8728771669F4C33A076CE357892463F444601D64",
+      "id": "github_release/github.com/dagger/dagger/v0.20.0/dagger_v0.20.0_linux_amd64.tar.gz",
+      "checksum": "B32C20723F9F5121A7DFEE50682E0032B25B997FEBB4811481CFCE2074A88B02",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dagger/dagger/v0.19.11/dagger_v0.19.11_linux_arm64.tar.gz",
-      "checksum": "17138A6A5AAF0DEE78550CF39831DE60C9A59516530467A9E51A938C21EE2E4E",
+      "id": "github_release/github.com/dagger/dagger/v0.20.0/dagger_v0.20.0_linux_arm64.tar.gz",
+      "checksum": "F6C1390A070ADC29E6F8E878A2DC2BF40885A5289BC1C0ADAB75C2FD84513005",
       "algorithm": "sha256"
     },
     {
