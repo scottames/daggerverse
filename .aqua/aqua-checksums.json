@@ -1,13 +1,8 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/casey/just/1.50.0/just-1.50.0-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "3BEB4967CE05883CF09AC12D6D128166EB4C6D0B03EFF74B61018A6880655D7D",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/casey/just/1.50.0/just-1.50.0-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "27E011CD6328FADD632E59233D2CF5F18460B8A8C4269ACD324C1A8669F34DB0",
+      "id": "github_release/github.com/casey/just/1.51.0/just-1.51.0-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "ED7EC466B77709198FD4AFED253DBA0270203BA5EB1C006BEE2B0139090284F5",
       "algorithm": "sha256"
     },
     {
@@ -44,11 +39,6 @@
       "id": "github_release/github.com/kevincobain2000/gobrew/v1.10.16/gobrew-linux-arm64",
       "checksum": "A111067CAA90C8E218C8E17CB6741D64758547E892D0FA03841AD682DAB3C57F",
       "algorithm": "sha256"
-    },
-    {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.505.0/registry.yaml",
-      "checksum": "8C3D7A679A4396940F6725AB6F80E74AB590E47F90C065728B4C6EEFD77C9F70CF0A8842FF2221BDF6FB703397AF5222C42ADC3BBE0F58B4E64A30406F946E46",
-      "algorithm": "sha512"
     },
     {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.510.0/registry.yaml",
