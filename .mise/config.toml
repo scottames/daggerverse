@@ -1,0 +1,5 @@
+[tools]
+go = "1.26.3"
+"aqua:casey/just" = "1.51.0"
+"aqua:dagger/dagger" = "0.21.4"
+"aqua:int128/ghcp" = "1.15.3"
