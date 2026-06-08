@@ -1,32 +1,26 @@
 ---
-name: dagger-update
+name: mise
 on:
-  # using on: pull_request causes a loop
-  # run on pushes to renovate branches
-  # with path filter
-  push:
+  pull_request:
     paths:
-      - "**/dagger.json"
-    branches:
-      - renovate/*
-  workflow_dispatch:
-    inputs:
-      #checkov:skip=CKV_GHA_7:desired to affect output to affect the build in this case
-      go-updates:
-        type: boolean
-        default: false
-        description: enable golang updates
-permissions:
-  contents: read # required for actions/checkout
+      - .mise/config.toml
+      - .mise/mise.lock
+permissions: read-all
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  MISE_EXPERIMENTAL: true
 jobs:
-  dagger-update:
-    name: Update Dagger Modules
+  lock:
+    if: "! github.event.pull_request.head.repo.fork"
     runs-on: ubuntu-latest
     permissions:
-      contents: write # allow workflow to write to PR
+      contents: write
+      pull-requests: write
     steps:
       - name: checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           # should be used for PRs only
           # https://github.com/marketplace/actions/add-commit#working-with-prs
@@ -45,16 +39,19 @@ jobs:
           permission-pull-requests: write # create release pull requests
       - name: install mise
         uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+        env:
+          MISE_LOCKED: 0 # disable "locked=true" for update
         with:
           install: true
+          install_args: aqua:int128/ghcp
           cache: true
           experimental: true
           github_token: ${{ steps.generate-token.outputs.token }}
-      - name: dagger develop
-        run: |
-          just goUpdates="${{ inputs.go-updates }}" develop
+      - name: mise lock
+        env:
+          MISE_LOCKED: 0 # disable "locked=true" for update
+        run: rm -f mise/mise.lock && mise lock # rm to prune
       - name: push changes with ghcp
-        if: "! github.event.pull_request.head.repo.fork"
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
@@ -75,16 +72,10 @@ jobs:
           if [ -z "${branch}" ]; then
             branch="${GITHUB_REF_NAME}"
           fi
-
-          GO_UPDATES_STR=""
-          if [ "${{ inputs.go-updates }}" = "true" ]; then
-            GO_UPDATES_STR=" + related golang updates"
-          fi
-
           # shellcheck disable=SC2046
           # ^- we want it to split!
           ghcp commit -r "$GITHUB_REPOSITORY" -b "${branch}" \
-            -m "chore(dagger): develop${GO_UPDATES_STR}" \
+            -m "chore(mise): lock" \
             $(git --no-pager diff --name-only)
           echo "::notice ::changes pushed to branch, 'exit 1' to force checks"
           exit 1
