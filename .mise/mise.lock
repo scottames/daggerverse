@@ -33,36 +33,36 @@ checksum = "sha256:ac53a7da91a33e344042dbec11e4bf1e1ec1d65ca4b695fe71398206d2a16
 url = "https://github.com/casey/just/releases/download/1.52.0/just-1.52.0-x86_64-pc-windows-msvc.zip"
 
 [[tools."aqua:dagger/dagger"]]
-version = "0.21.4"
+version = "0.21.6"
 backend = "aqua:dagger/dagger"
 
 [tools."aqua:dagger/dagger"."platforms.linux-arm64"]
-checksum = "sha256:d4610ec53c77eef7a5610b732b9e9b0d26c3f1c5911ef99e5e8e5c9e7cf6880e"
-url = "https://github.com/dagger/dagger/releases/download/v0.21.4/dagger_v0.21.4_linux_arm64.tar.gz"
+checksum = "sha256:2fe36aca2a392152c6f1fc1e866638733cbd93720aaae77005d483ab3eba0f82"
+url = "https://github.com/dagger/dagger/releases/download/v0.21.6/dagger_v0.21.6_linux_arm64.tar.gz"
 
 [tools."aqua:dagger/dagger"."platforms.linux-arm64-musl"]
-checksum = "sha256:d4610ec53c77eef7a5610b732b9e9b0d26c3f1c5911ef99e5e8e5c9e7cf6880e"
-url = "https://github.com/dagger/dagger/releases/download/v0.21.4/dagger_v0.21.4_linux_arm64.tar.gz"
+checksum = "sha256:2fe36aca2a392152c6f1fc1e866638733cbd93720aaae77005d483ab3eba0f82"
+url = "https://github.com/dagger/dagger/releases/download/v0.21.6/dagger_v0.21.6_linux_arm64.tar.gz"
 
 [tools."aqua:dagger/dagger"."platforms.linux-x64"]
-checksum = "sha256:4db2f807b67e3160fb110bb1e088b14c516594b8d287114a39c980f2485e9672"
-url = "https://github.com/dagger/dagger/releases/download/v0.21.4/dagger_v0.21.4_linux_amd64.tar.gz"
+checksum = "sha256:0b10f5f464843dc154fae47279ad66e465d75a2118b32151394b7383c0eaac4f"
+url = "https://github.com/dagger/dagger/releases/download/v0.21.6/dagger_v0.21.6_linux_amd64.tar.gz"
 
 [tools."aqua:dagger/dagger"."platforms.linux-x64-musl"]
-checksum = "sha256:4db2f807b67e3160fb110bb1e088b14c516594b8d287114a39c980f2485e9672"
-url = "https://github.com/dagger/dagger/releases/download/v0.21.4/dagger_v0.21.4_linux_amd64.tar.gz"
+checksum = "sha256:0b10f5f464843dc154fae47279ad66e465d75a2118b32151394b7383c0eaac4f"
+url = "https://github.com/dagger/dagger/releases/download/v0.21.6/dagger_v0.21.6_linux_amd64.tar.gz"
 
 [tools."aqua:dagger/dagger"."platforms.macos-arm64"]
-checksum = "sha256:91bda59ac41a230c2d95e4cde08a24c6842a00347e49769068892254f584bb25"
-url = "https://github.com/dagger/dagger/releases/download/v0.21.4/dagger_v0.21.4_darwin_arm64.tar.gz"
+checksum = "sha256:e69f40cb8e3dfdd6cfdf68e30eb4d9d7d95c3ad1bc85e40b95503e861e0d63a6"
+url = "https://github.com/dagger/dagger/releases/download/v0.21.6/dagger_v0.21.6_darwin_arm64.tar.gz"
 
 [tools."aqua:dagger/dagger"."platforms.macos-x64"]
-checksum = "sha256:4219176bd0bc8e10aca717e91d826c1e64bbff9184d772846b5ea627558ff6e2"
-url = "https://github.com/dagger/dagger/releases/download/v0.21.4/dagger_v0.21.4_darwin_amd64.tar.gz"
+checksum = "sha256:2512ec5ffccf99889b50a753ea1413e7464d8022492a4648a56792926d0c4416"
+url = "https://github.com/dagger/dagger/releases/download/v0.21.6/dagger_v0.21.6_darwin_amd64.tar.gz"
 
 [tools."aqua:dagger/dagger"."platforms.windows-x64"]
-checksum = "sha256:42e1b082509356794f51a368df9d2b8e23a3c17f6243e71ab878ed1274ae8394"
-url = "https://github.com/dagger/dagger/releases/download/v0.21.4/dagger_v0.21.4_windows_amd64.zip"
+checksum = "sha256:29e9ddccdbd0dc56d5577da09e0fba5dc7ae3cf9ae4869a7c5b18070f6194285"
+url = "https://github.com/dagger/dagger/releases/download/v0.21.6/dagger_v0.21.6_windows_amd64.zip"
 
 [[tools."aqua:int128/ghcp"]]
 version = "1.15.3"
