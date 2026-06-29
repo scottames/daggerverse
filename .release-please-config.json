@@ -22,11 +22,6 @@
       "component": "cosign",
       "release-type": "go"
     },
-    "distrobox": {
-      "package-name": "distrobox",
-      "component": "distrobox",
-      "release-type": "go"
-    },
     "fedora": {
       "package-name": "fedora",
       "component": "fedora",
