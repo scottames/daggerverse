@@ -1,6 +1,6 @@
 {
   "name": "cosign",
-  "engineVersion": "v0.21.4",
+  "engineVersion": "v0.21.11",
   "sdk": {
     "source": "go"
   },
