@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.8](https://github.com/scottames/daggerverse/compare/fedora/v0.0.7...fedora/v0.0.8) (2026-10-31)
+
+
+### Updates & Misc Chores
+
+* **deps:** update ⬆️ dagger to v0.21.10 ([#154](https://github.com/scottames/daggerverse/issues/154)) ([fa76525](https://github.com/scottames/daggerverse/commit/fa76525b09e2165ab29572cdb199e4df0fed2593))
+
 ## [0.0.7](https://github.com/scottames/daggerverse/compare/fedora/v0.0.6...fedora/v0.0.7) (2026-06-08)
 
 
