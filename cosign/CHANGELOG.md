@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.8](https://github.com/scottames/daggerverse/compare/cosign/v0.0.7...cosign/v0.0.8) (2026-11-27)
+
+
+### Updates & Misc Chores
+
+* **deps:** update ⬆️ dagger to v0.21.10 ([#154](https://github.com/scottames/daggerverse/issues/154)) ([fa76525](https://github.com/scottames/daggerverse/commit/fa76525b09e2165ab29572cdb199e4df0fed2593))
+* **deps:** update ⬆️ dagger to v0.21.12 ([#160](https://github.com/scottames/daggerverse/issues/160)) ([32bcd6e](https://github.com/scottames/daggerverse/commit/32bcd6e65542b7b96bda860948dea87dac7d2201))
+
 ## [0.0.7](https://github.com/scottames/daggerverse/compare/cosign/v0.0.6...cosign/v0.0.7) (2026-06-08)
 
 
